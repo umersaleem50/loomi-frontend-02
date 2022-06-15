@@ -1,0 +1,29 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 8rem;
+  position: relative;
+
+  &__links {
+    display: flex;
+    justify-self: center;
+    justify-content: space-between;
+    list-style: none;
+  }
+
+  &__link {
+    font-size: 1.4rem;
+    text-decoration: none;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    height: 100%;
+    padding: 2rem 1rem;
+    margin: 0 0.5rem;
+  }
+  //
+}
+
+.active {
+  border-bottom: 2px solid var(--color-primary);
+}

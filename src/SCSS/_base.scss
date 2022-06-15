@@ -1,0 +1,27 @@
+*,
+*::after,
+:root {
+  --color-primary: #222326;
+  --color-secondary: #7e7b77;
+  --color-light: #d4cfcb;
+  --color-stroke: #f0f0f0;
+  --color-accent: #e09c7f;
+  --color-brown: #887568;
+  --color-urgent: #eb5757;
+  --color-white: #ffffff;
+}
+
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  font-family: inherit;
+}
