@@ -24,7 +24,7 @@ class Navigation extends Component {
     return (
       <nav className="nav">
         <Logo className="nav__logo" />
-        <nav>
+        <nav className="nav__links">
           <Navlinks links={this.links} />
         </nav>
         <Actions className="nav__actions" />

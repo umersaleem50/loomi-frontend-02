@@ -2,9 +2,9 @@ import { NavLink } from "react-router-dom";
 
 const navlinks = (props) => {
   return (
-    <ul className="nav__links">
+    <ul>
       {props.links.map((el, i) => (
-        <li>
+        <li key={i}>
           <NavLink to={`/${el.split(" ").join("-")}`} className="nav__link">
             {el}
           </NavLink>
