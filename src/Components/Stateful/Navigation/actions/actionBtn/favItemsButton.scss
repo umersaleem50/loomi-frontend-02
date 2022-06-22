@@ -1,0 +1,26 @@
+.actionBtn {
+  position: relative;
+  float: left;
+  &__icon {
+    cursor: pointer;
+  }
+  &__box {
+    max-height: 50rem;
+    top: 150%;
+    left: 0;
+    transform: translateX(-70%);
+    position: absolute;
+    // max-width: 9rem;
+    width: 30rem;
+    // background-color: aqua;
+    padding: 1.5rem 2rem;
+    box-shadow: 0.5rem 1rem 1rem rgba(#000, 0.1);
+    overflow-y: scroll;
+
+    &__top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}

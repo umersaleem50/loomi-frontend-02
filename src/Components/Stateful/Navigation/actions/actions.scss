@@ -1,0 +1,10 @@
+.actions {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 1fr 3rem 3rem;
+  align-items: center;
+  grid-column-gap: 2rem;
+  grid-column: 3 / -1;
+  grid-row: 1 / -1;
+  transition: all 0.2s ease-in-out;
+}

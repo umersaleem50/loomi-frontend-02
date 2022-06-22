@@ -1,6 +1,9 @@
 import React from "react";
 import { useRef } from "react";
+import { FiHeart } from "react-icons/fi";
 import Search from "../../Search/Search";
+import FavItemsButton from "./actionBtn/favItemsButton";
+import "./actions.scss";
 
 const Actions = (props) => {
   const searchRef = useRef();
@@ -14,8 +17,14 @@ const Actions = (props) => {
   };
 
   return (
-    <div ref={searchRef} className="nav__actions">
-      <Search searchToggled={searchToggled} closeSearch={closeSearch} />
+    <div ref={searchRef} className="actions">
+      <Search
+        searchToggled={searchToggled}
+        closeSearch={closeSearch}
+        url="api/v1/products/search"
+      />
+      {/* <FiHeart></FiHeart> */}
+      {FavItemsButton(FiHeart, { heading: "favroite items" })}
     </div>
   );
 };
