@@ -8,9 +8,10 @@
   justify-self: flex-start;
 
   height: 6rem;
+  z-index: 50;
 
   // height: 8rem;
-  // background-color: var(--color-white);
+  background-color: var(--color-white);
   //   transition: transform 0.2s ease-in;
   &__btn {
     cursor: pointer;
@@ -37,5 +38,7 @@
     // background-color: aqua;
     width: 100%;
     box-shadow: 0.2rem 0.5rem 2rem rgba(#000, 0.12);
+    z-index: inherit;
+    background-color: var(--color-white);
   }
 }

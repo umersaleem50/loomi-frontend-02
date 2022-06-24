@@ -1,0 +1,69 @@
+{
+  "sales": {
+    "banner": "banner.jpg",
+    "categories": [
+      {
+        "heading": "shop by sex",
+        "type": "picture-text-big",
+        "links": [
+          {
+            "text": "for him",
+            "picture": "for-him.jpg",
+            "to": "?for=male"
+          },
+          {
+            "text": "for her",
+            "picture": "for-her.jpg",
+            "to": "?for=female"
+          }
+        ]
+      },
+      {
+        "heading": "Categories",
+        "type": "picture-text-small",
+        "links": [
+          {
+            "text": "shoes",
+            "picture": "heal.jpg",
+            "to": "?category=shoes"
+          },
+          {
+            "text": "outwear",
+            "picture": "outwear.jpg",
+            "to": "?category=outwear"
+          },
+          {
+            "text": "Skirts",
+            "picture": "skirt.jpg",
+            "to": "?category=skirt"
+          },
+          {
+            "text": "Dresses",
+            "picture": "dress.jpg",
+            "to": "?category=dress"
+          },
+          {
+            "text": "accessories",
+            "picture": "accessories.jpg",
+            "to": "?category=accessories"
+          },
+          {
+            "text": "jeans",
+            "picture": "jeans.jpg",
+            "to": "?category=jean"
+          },
+          {
+            "text": "tops",
+            "picture": "top.jpg",
+            "to": "?category=top"
+          },
+          {
+            "text": "coats",
+            "picture": "coat.jpg",
+            "to": "?category=coat"
+          }
+        ]
+      }
+    ]
+  }
+}

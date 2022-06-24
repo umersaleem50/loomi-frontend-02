@@ -1,10 +1,12 @@
 import React from "react";
+import Header from "../../Components/Stateless/Header/Header";
+
 import "../../SCSS/_home.scss";
 
 const Home = (props) => {
   return (
     <React.Fragment>
-      <div className="hero"></div>
+      <Header />
     </React.Fragment>
   );
 };

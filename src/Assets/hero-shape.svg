@@ -1,0 +1,7 @@
+<svg width="0" height="0" viewBox="0 0 280 369">
+    <defs>
+        <clipPath id="heroSvg">
+           <path d="M0 180C0 80.5888 80.5887 0 180 0H280V369H0V180Z" fill="#202020"/>
+        </clipPath>
+    </defs>
+</svg>

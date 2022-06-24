@@ -5,11 +5,14 @@ import { IoCloseOutline as BtnClose } from "react-icons/io5";
 
 import "./Search.scss";
 import SearchResult from "./result/result";
+import Error from "../../../Utils/Error/Error";
 class Search extends Component {
   state = {
     isToggle: false,
-    products: "shoes",
+    products: "",
     results: [],
+    isError: false,
+    errorMessage: "",
   };
 
   async searchResults() {
@@ -26,7 +29,13 @@ class Search extends Component {
       this.setState({ results: results.data.data });
       // return results;
     } catch (err) {
-      alert(err.message);
+      console.log(err.response.status);
+      if (err.response.status === 500) {
+        this.setState({
+          isError: true,
+          errorMessage: "Failed to connect to server. Try again later!",
+        });
+      }
     }
   }
 
@@ -79,6 +88,9 @@ class Search extends Component {
                 key={i}
               />
             ))}
+            {this.state.isError && (
+              <Error type="failed" message={this.state.errorMessage} />
+            )}
           </div>
         )}
       </div>

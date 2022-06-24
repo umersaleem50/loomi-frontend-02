@@ -3,18 +3,32 @@ import { Heading6 } from "../../../Utils/Typography/Typography";
 import CustomLink from "./navLinks/navLink/CustomLink";
 
 class Navlinks_Container extends Component {
-  state = {
-    isToggle: false,
-  };
+  // state = {
+  //   isToggle: false,
+  // };
 
-  generateLinks(links) {
+  generateLinks(links, type) {
     // return links.map((link,i))
-    return (
-      <>
-        <CustomLink type="picture_text_big" text="For Her" picture="girl.jpg" />
-        <CustomLink type="picture_text_big" text="For Her" picture="girl.jpg" />
-      </>
-    );
+    return links.map((data, i) => (
+      <CustomLink
+        type={type}
+        text={data.text}
+        picture={data.picture}
+        key={i}
+        to={data.to}
+      />
+    ));
+  }
+
+  generateCategories(categories) {
+    return categories.map((el, i) => (
+      <div className="nav__container__category" key={i}>
+        <Heading6 text={el.heading} upperCase bold />
+        <div className="nav__container__category__box">
+          {this.generateLinks(el.links, el.type)}
+        </div>
+      </div>
+    ));
   }
 
   render() {
@@ -25,22 +39,8 @@ class Navlinks_Container extends Component {
             <img src={`/assets/${this.props.banner}`} alt="New Discount" />
           )}
         </div>
-        <div className="nav__container__category">
-          {this.props.category.length && (
-            <Heading6 text={this.props.category[0].heading} upperCase bold />
-          )}
-          <div className="nav__container__category__box">
-            {this.generateLinks()}
-          </div>
-        </div>
-        <div className="nav__container__category">
-          {this.props.category.length && (
-            <Heading6 text={this.props.category[1].heading} upperCase bold />
-          )}
-          <div className="nav__container__category__box">
-            {this.generateLinks()}
-          </div>
-        </div>
+
+        {this.generateCategories(this.props.categories)}
       </div>
     );
   }

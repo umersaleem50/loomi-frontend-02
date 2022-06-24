@@ -5,7 +5,7 @@ import classes from "./CustomLink.module.scss";
 
 const CustomLink = (props) => {
   return (
-    <Link to={props.to || "/test"} className={classes[props.type]}>
+    <Link to={props.to || "/products"} className={classes[props.type]}>
       {props.type && props.type.includes("picture") && (
         <img src={`/assets/${props.picture}`} alt={props.text}></img>
         // <img src={`./public/assets/${props.picture}`}></img>

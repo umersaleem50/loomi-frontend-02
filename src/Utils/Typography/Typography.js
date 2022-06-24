@@ -32,3 +32,11 @@ export const Heading3 = (props) => {
     </h3>
   );
 };
+
+export const Heading_Hero = (props) => {
+  return (
+    <h2 className={classes.Heading_Hero} style={generateStyle(props)}>
+      {props.children || props.text}
+    </h2>
+  );
+};

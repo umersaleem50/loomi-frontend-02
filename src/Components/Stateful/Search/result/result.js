@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "./result.scss";
 const SearchResult = (props) => {
   return (
-    <Link className="searchResult" to={{ pathname: `/product/${props.id}` }}>
+    <Link className="searchResult" to={{ pathname: `/products/${props.id}` }}>
       <img
         className="searchResult__img"
         src={`/images/products/small/${props.image}`}
