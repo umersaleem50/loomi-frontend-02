@@ -3,6 +3,7 @@ import classes from "./Typography.module.scss";
 const generateStyle = (props) => ({
   textTransform: props.upperCase ? "uppercase" : "",
   fontWeight: props.bold ? "600" : "500",
+  fontStyle: props.italic ? "italic" : "",
 });
 
 export const Paragraphy = (props) => {

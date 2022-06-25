@@ -1,4 +1,10 @@
-import { Heading_Hero } from "../../../Utils/Typography/Typography";
+import {
+  Heading3,
+  Heading5,
+  Heading6,
+  Heading_Hero,
+} from "../../../Utils/Typography/Typography";
+import { BtnCTA } from "../Button/Button";
 import classes from "./Header.module.scss";
 const Header = (props) => {
   return (
@@ -12,6 +18,12 @@ const Header = (props) => {
         loop
       />
       <Heading_Hero text="Season" />
+      <Heading_Hero text="Sale" italic style={{ top: "20%" }} />
+      <Heading5 text="UP TO" bold />
+      <Heading3 text="-60%" />
+
+      <BtnCTA text="shop now" />
+
       <svg width="0" height="0">
         <defs>
           <clipPath id="heroSvg">
