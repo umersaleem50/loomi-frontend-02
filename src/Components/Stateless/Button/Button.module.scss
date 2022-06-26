@@ -54,3 +54,28 @@
   //     transform: sca;
   //   }
 }
+
+.BtnRound {
+  color: var(--color-primary);
+  text-transform: capitalize;
+  outline: none;
+  border: 1px solid var(--color-primary);
+  padding: 1rem 2.5rem;
+  border-radius: 5rem;
+  cursor: pointer;
+  background-color: transparent;
+  font-family: inherit;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+  &:hover,
+  &:active {
+    background-color: var(--color-accent);
+    border: 1px solid var(--color-accent);
+    color: var(--color-white);
+  }
+}
+.BtnRoundActive {
+  background-color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  color: var(--color-white);
+}

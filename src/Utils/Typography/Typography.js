@@ -1,9 +1,10 @@
 import classes from "./Typography.module.scss";
 
-const generateStyle = (props) => ({
-  textTransform: props.upperCase ? "uppercase" : "",
-  fontWeight: props.bold ? "600" : "500",
-  fontStyle: props.italic ? "italic" : "",
+const generateStyle = ({ upperCase, bold, italic, ...props }) => ({
+  textTransform: upperCase ? "uppercase" : "",
+  fontWeight: bold ? "600" : "500",
+  fontStyle: italic ? "italic" : "",
+  ...props.customStyle,
 });
 
 export const Paragraphy = (props) => {
