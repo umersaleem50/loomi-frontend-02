@@ -67,6 +67,7 @@
   font-family: inherit;
   font-weight: 500;
   transition: all 0.2s ease-in-out;
+
   &:hover,
   &:active {
     background-color: var(--color-accent);
@@ -78,4 +79,23 @@
   background-color: var(--color-accent);
   border: 1px solid var(--color-accent);
   color: var(--color-white);
+}
+
+.LinkRound {
+  display: block;
+  width: 15rem;
+  padding: 1rem 1.5rem;
+  border-radius: 5rem;
+  outline: none;
+  text-decoration: none;
+
+  font-size: var(--font-body);
+  color: var(--color-accent);
+  border: 2px solid var(--color-accent);
+  transition: all 0.2s ease-in;
+  &:hover {
+    background-color: var(--color-accent);
+    color: var(--color-white);
+  }
+  // border: 1px solid ;
 }

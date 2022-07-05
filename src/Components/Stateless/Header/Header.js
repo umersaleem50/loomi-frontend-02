@@ -18,7 +18,7 @@ const Header = (props) => {
         loop
       />
       <Heading_Hero text="Season" />
-      <Heading_Hero text="Sale" italic style={{ top: "20%" }} />
+      <Heading_Hero text="Sale" italic style={{ top: "50%" }} />
       <Heading5 text="UP TO" bold />
       <Heading3 text="-60%" />
 

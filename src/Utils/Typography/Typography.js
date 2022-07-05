@@ -1,14 +1,18 @@
 import classes from "./Typography.module.scss";
 
 const generateStyle = ({ upperCase, bold, italic, ...props }) => ({
-  textTransform: upperCase ? "uppercase" : "",
+  textTransform: upperCase ? "uppercase" : "capitalize",
   fontWeight: bold ? "600" : "500",
   fontStyle: italic ? "italic" : "",
-  ...props.customStyle,
+  ...props.style,
 });
 
 export const Paragraphy = (props) => {
-  return <p className={classes.paragraph}>{props.children || props.text}</p>;
+  return (
+    <p className={classes.paragraph} style={generateStyle(props)}>
+      {props.children || props.text}
+    </p>
+  );
 };
 
 export const Heading5 = (props) => {
@@ -40,5 +44,13 @@ export const Heading_Hero = (props) => {
     <h2 className={classes.Heading_Hero} style={generateStyle(props)}>
       {props.children || props.text}
     </h2>
+  );
+};
+
+export const Heading7 = (props) => {
+  return (
+    <h6 className={classes.heading7} style={generateStyle(props)}>
+      {props.children || props.text}
+    </h6>
   );
 };

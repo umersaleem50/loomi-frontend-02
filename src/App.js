@@ -13,7 +13,7 @@ function App() {
         <Routes>
           <Route path="/" match element={<Home />} />
           <Route path="/products/" match element={<p>products</p>} />
-          <Route path="/products/*" match element={<p>products with id</p>} />
+          <Route path="/product/*" match element={<p>product with id</p>} />
         </Routes>
       </Router>
     </div>

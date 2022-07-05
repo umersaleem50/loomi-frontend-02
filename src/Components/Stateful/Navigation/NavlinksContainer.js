@@ -15,7 +15,7 @@ class Navlinks_Container extends Component {
         text={data.text}
         picture={data.picture}
         key={i}
-        to={data.to}
+        to={`/products${data.to}`}
       />
     ));
   }

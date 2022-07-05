@@ -42,8 +42,8 @@
   }
 
   button {
-    position: absolute;
-    bottom: 11%;
+    position: relative;
+    bottom: 12%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
@@ -51,11 +51,14 @@
 .video {
   position: absolute;
   clip-path: url(#heroSvg);
-  height: 35rem;
-  width: 28rem;
+  // height: 35rem;
+  // width: 28rem;
+
+  height: 55vh;
+  width: 40vh;
   // transform: scale(0.1);
   object-fit: cover;
-  top: 40%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }

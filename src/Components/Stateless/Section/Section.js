@@ -6,7 +6,7 @@ const Section = (props) => {
       <Heading3
         text={props.heading}
         upperCase
-        customStyle={{ textAlign: "center", marginBottom: "4rem" }}
+        style={{ textAlign: "center", marginBottom: "4rem" }}
       />
       {props.children}
     </section>

@@ -9,6 +9,11 @@
   border-top: 2px solid var(--color-stroke);
   text-decoration: none;
   font-family: "Montserrat", sans-serif;
+
+  &:hover {
+    background-color: var(--color-accent);
+  }
+
   &__img {
     width: 5rem;
     height: 5rem;

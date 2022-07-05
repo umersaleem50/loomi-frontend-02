@@ -1,0 +1,14 @@
+.brands {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 6rem;
+}
+.brand {
+  max-width: 10rem;
+  max-height: 3rem;
+  opacity: 0.8;
+  object-fit: contain;
+}
