@@ -1,0 +1,17 @@
+.DetailSection {
+  width: 100%;
+  border-bottom: 2px solid var(--color-stroke);
+  margin-bottom: 10rem;
+}
+.Details {
+  max-width: 114rem;
+  margin: 6rem auto;
+  display: flex;
+}
+.Detail {
+  text-align: center;
+  padding: 0 3rem;
+  &:not(:last-of-type) {
+    border-right: 2px solid var(--color-stroke);
+  }
+}

@@ -34,3 +34,15 @@ export const LinkRound = (props) => {
     </Link>
   );
 };
+
+export const BtnRectangle = (props) => {
+  return (
+    <button
+      className={classes.btnRectangle}
+      onClick={(e) => props.btnClicked}
+      style={props.customStyle}
+    >
+      {props.text || props.children}
+    </button>
+  );
+};

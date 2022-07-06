@@ -1,0 +1,29 @@
+.CollectionSlider {
+  &__categories {
+    display: flex;
+    justify-self: center;
+    align-items: center;
+
+    label {
+      font-size: var(--font-body);
+      margin-right: 0.5rem;
+    }
+    select {
+      border: none;
+      padding: 0.5rem 1rem;
+      color: var(--color-primary);
+      background-color: var(--color-stroke);
+      outline: none;
+      font-family: inherit;
+
+      &:not(:last-of-type) {
+        margin-right: 2rem;
+      }
+      option {
+        background-color: var(--color-stroke);
+        outline: none;
+        border: none;
+      }
+    }
+  }
+}
