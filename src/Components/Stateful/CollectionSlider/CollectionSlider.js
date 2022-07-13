@@ -1,63 +1,18 @@
 import { Component } from "react";
+import { Heading5, Paragraphy } from "../../../Utils/Typography/Typography";
 import classes from "./CollectionSlider.module.scss";
+import testData from "../../../Assets/testData.json";
+import SliderButtons from "../../Stateless/Button/SliderButtons/SliderButtons";
+//* IMPORT OptionsData from asset in form of json object
+import collectionOptionSelector from "../../../Assets/collectionOptionSelector.json";
+import { BtnRectangleStroke } from "../../Stateless/Button/Button";
+
 class CollectionSlider extends Component {
-  collectionsList = [
-    {
-      name: "Gender",
-      options: [
-        {
-          name: "Female",
-          value: "female",
-        },
-        {
-          name: "Male",
-          value: "male",
-        },
-      ],
-    },
-    {
-      name: "Style",
-      options: [
-        {
-          name: "Partywear",
-          value: "partywear",
-        },
-        {
-          name: "Casual",
-          value: "casual",
-        },
-        {
-          name: "Classic",
-          value: "classic",
-        },
-      ],
-    },
-    {
-      name: "Price Range",
-      options: [
-        {
-          name: "All",
-          value: undefined,
-        },
-        {
-          name: "Lowest",
-          value: "-1",
-        },
-        {
-          name: "Highest",
-          value: "1",
-        },
-      ],
-    },
-    {
-      name: "Category",
-      options: [
-        { name: "Dresses", value: "dress" },
-        { name: "Accessories", value: "accessories" },
-      ],
-    },
-  ];
-  generateCollections(list) {
+  state = {
+    currentSlideNum: 0,
+  };
+
+  generateOptionSelectors(list) {
     return list.map((item, i) => {
       return (
         <>
@@ -75,11 +30,90 @@ class CollectionSlider extends Component {
       );
     });
   }
+
+  generateCollectionSlider(data) {
+    const end = this.state.currentSlideNum + 2;
+    const start = this.state.currentSlideNum;
+    return data.slice(start, end).map((collection, i) => {
+      return (
+        <div className={classes.CollectionSlider__slider__image} key={i}>
+          <img src={`assets/${collection.image}`} alt="Collection" />
+        </div>
+      );
+    });
+  }
+
+  generateCollectionData(data) {
+    return data.map((data, i) => {
+      return (
+        <div className={classes.CollectionSlider__collection}>
+          <div className={classes.CollectionSlider__collection__image}>
+            <img src={`assets/${data.image}`} alt={`Product ${i}`} />
+          </div>
+          <div className={classes.CollectionSlider__collection__details}>
+            <Paragraphy text={`$${data.price}`} bold />
+            <Paragraphy
+              text={data.name}
+              style={{ color: "var(--color-secondary)" }}
+            />
+          </div>
+        </div>
+      );
+    });
+  }
+
+  slideSliderRight() {
+    if (this.state.currentSlideNum === testData.length - 2)
+      return this.setState({ currentSlideNum: 0 });
+
+    this.setState((prevState) => {
+      return {
+        currentSlideNum: prevState.currentSlideNum + 1,
+      };
+    });
+  }
+
+  slideSliderLeft() {
+    if (this.state.currentSlideNum === 0) return;
+
+    this.setState((prevState) => {
+      return {
+        currentSlideNum: prevState.currentSlideNum - 1,
+      };
+    });
+  }
+
+  componentDidCatch() {}
+
   render() {
     return (
       <div className={classes.CollectionSlider}>
-        <div className={classes.CollectionSlider__categories}>
-          {this.generateCollections(this.collectionsList)}
+        <div className={classes.CollectionSlider__options}>
+          {this.generateOptionSelectors(collectionOptionSelector)}
+        </div>
+        <div className={classes.container}>
+          <div className={classes.CollectionSlider__slider}>
+            <div className={classes.CollectionSlider__slider__container}>
+              {this.generateCollectionSlider(testData)}
+            </div>
+            <SliderButtons
+              slideSliderLeft={this.slideSliderLeft.bind(this)}
+              slideSliderRight={this.slideSliderRight.bind(this)}
+              currentSlideNum={this.state.currentSlideNum}
+            />
+          </div>
+          <div className={classes.CollectionData}>
+            <Heading5 text="in this look" upperCase bold />
+            <div className={classes.CollectionData__collections}>
+              {this.generateCollectionData(
+                testData[this.state.currentSlideNum].collections
+              )}
+            </div>
+            <BtnRectangleStroke
+              to={`/product/${testData[this.state.currentSlideNum].image}`}
+              text="Buy it now"
+            />
+          </div>
         </div>
       </div>
     );
