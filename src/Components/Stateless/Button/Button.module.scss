@@ -119,3 +119,37 @@
     // color: var(--color-white);
   }
 }
+.BtnRectangleStroke {
+  display: inline-block;
+
+  padding: 1.5rem 4rem;
+  color: var(--color-accent);
+  font-size: var(--font-body);
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 2px solid currentColor;
+  font-weight: 500;
+  transition: all 0.2s;
+  &:hover {
+    background-color: var(--color-accent);
+    color: var(--color-white);
+    border: 2px solid var(--color-accent);
+    box-shadow: 0.5rem 0.5rem 4rem rgba(95, 95, 95, 0.473);
+  }
+}
+
+.BtnRectangleAccent {
+  display: inline-block;
+  background-color: var(--color-accent);
+  padding: 1.5rem 2rem;
+  color: var(--color-white);
+  outline: none;
+  border: none;
+  font-family: inherit;
+  text-transform: capitalize;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+  &:hover {
+    box-shadow: 0.5rem 0.5rem 3rem rgba(73, 73, 73, 0.247);
+  }
+}

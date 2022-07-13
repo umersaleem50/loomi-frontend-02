@@ -4,11 +4,11 @@ import { BtnRound, LinkRound } from "../../Stateless/Button/Button";
 import classes from "./Slider.module.scss";
 import axios from "axios";
 import SliderItem from "../../Stateless/SliderItem/SliderItem";
-
 import {
   BsChevronLeft as ArrowLeft,
   BsChevronRight as ArrowRight,
 } from "react-icons/bs";
+import SliderButtons from "../../Stateless/Button/SliderButtons/SliderButtons";
 
 const Slider = (SliderElement, props) => {
   class SliderClass extends Component {
@@ -187,13 +187,21 @@ const Slider = (SliderElement, props) => {
             <div
               className={classes.slider__products__container}
               ref={this.sliderContainerRef}
-              onDragCapture={(e) => console.log(e.clientX)}
             >
+              {/* //* This will generate the products using method. */}
               {this.generateProducts(this.state.products)}
             </div>
           </div>
 
-          <div className={classes.slider__arrowBtns}>
+          <SliderButtons
+            slideSliderLeft={this.slideSliderLeft}
+            slideSliderRight={this.slideSliderRight}
+            currentSlideNum={this.state.currentSlideNum}
+          />
+
+          {/* //TODO Delete below comment */}
+
+          {/* <div className={classes.slider__arrowBtns}>
             <button
               className={classes.slider__arrow}
               onClick={() => this.slideSliderRight()}
@@ -208,7 +216,8 @@ const Slider = (SliderElement, props) => {
             >
               <ArrowRight className={classes.slider__arrow__icon} />
             </button>
-          </div>
+          </div> */}
+          {/* //* This is a button at the bottom of slider to get all products on other page. */}
           <LinkRound
             to="/products"
             text="Shop the trends"
