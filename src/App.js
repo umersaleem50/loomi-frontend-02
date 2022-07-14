@@ -1,11 +1,10 @@
-// import logo from './logo.svg';
-// import './App.css';
-import axios from "axios";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import Home from "./Views/home/home";
 import Navigation from "./Components/Stateful/Navigation/Navigation";
-function App() {
+import Footer from "./Components/Stateless/Footer/Footer";
+
+function App(props) {
   return (
     <div className="App">
       <Router>
@@ -15,6 +14,8 @@ function App() {
           <Route path="/products/" match element={<p>products</p>} />
           <Route path="/product/*" match element={<p>product with id</p>} />
         </Routes>
+        {/* {console.log(location)} */}
+        <Footer />
       </Router>
     </div>
   );
