@@ -26,7 +26,7 @@ class Search extends Component {
         },
       });
       // console.log(results.data.data[0]);
-      this.setState({ results: results.data.data });
+      this.setState({ results: results.data.data, isError: false });
       // return results;
     } catch (err) {
       console.log(err.response.status);

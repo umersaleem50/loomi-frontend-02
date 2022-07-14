@@ -1,3 +1,10 @@
+.Footer {
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--color-stroke);
+  padding-top: 6rem;
+}
 .Container {
   max-width: 114rem;
   margin: 0 auto;
@@ -5,6 +12,14 @@
   flex-direction: row;
 
   justify-content: space-between;
+  margin-bottom: 5rem;
+}
+.BottomContainer {
+  display: flex;
+  max-width: 114rem;
+  width: 100%;
+
+  margin: 0 auto;
 }
 
 .Box {
@@ -19,9 +34,36 @@
 .Link {
   text-decoration: none;
   color: var(--color-secondary);
+
+  &:hover {
+    color: var(--color-urgent);
+  }
   //   font-size: var(--font-body);
 
   &:not(:last-of-type) {
     margin-bottom: 1.5rem;
+  }
+}
+
+.CopyContainer {
+  background-color: var(--color-light);
+  margin-top: 5rem;
+}
+
+.Copywrite {
+  display: flex;
+  width: 114rem;
+  margin: 0 auto;
+  padding: 3rem;
+  font-size: var(--font-body);
+  text-transform: uppercase;
+  font-family: inherit;
+  span {
+    text-transform: capitalize;
+    margin: 0 auto;
+
+    a {
+      color: var(--color-urgent);
+    }
   }
 }

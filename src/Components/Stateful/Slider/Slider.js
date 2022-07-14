@@ -3,11 +3,7 @@ import React from "react";
 import { BtnRound, LinkRound } from "../../Stateless/Button/Button";
 import classes from "./Slider.module.scss";
 import axios from "axios";
-import SliderItem from "../../Stateless/SliderItem/SliderItem";
-import {
-  BsChevronLeft as ArrowLeft,
-  BsChevronRight as ArrowRight,
-} from "react-icons/bs";
+
 import SliderButtons from "../../Stateless/Button/SliderButtons/SliderButtons";
 
 const Slider = (SliderElement, props) => {
@@ -69,16 +65,6 @@ const Slider = (SliderElement, props) => {
           </p>
         );
       return products.map((product, i) => (
-        // <SliderItem
-        //   ref={i === 0 ? this.productRef : null}
-        //   productId={product.id}
-        //   name={product.name}
-        //   image={product.images[0]}
-        //   category={product.category}
-        //   discount={product.discount}
-        //   price={product.price}
-        //   key={i}
-        // />
         <SliderElement
           ref={i === 0 ? this.productRef : null}
           productId={product.id}
@@ -153,7 +139,7 @@ const Slider = (SliderElement, props) => {
       this.setState({ currentSlideNum: slideNumber });
     }
 
-    slideSliderLeft() {
+    slideSliderRight() {
       const numOfProductToDisplay = Math.floor(
         this.sliderRef.current.offsetWidth / this.productRef.current.offsetWidth
       );
@@ -168,7 +154,7 @@ const Slider = (SliderElement, props) => {
       this.slideSlider(this.state.currentSlideNum - 1);
     }
 
-    slideSliderRight() {
+    slideSliderLeft() {
       if (this.state.currentSlideNum === 0) return;
       this.slideSlider(this.state.currentSlideNum + 1);
     }
@@ -194,8 +180,8 @@ const Slider = (SliderElement, props) => {
           </div>
 
           <SliderButtons
-            slideSliderLeft={this.slideSliderLeft}
-            slideSliderRight={this.slideSliderRight}
+            slideSliderLeft={this.slideSliderLeft.bind(this)}
+            slideSliderRight={this.slideSliderRight.bind(this)}
             currentSlideNum={this.state.currentSlideNum}
           />
 

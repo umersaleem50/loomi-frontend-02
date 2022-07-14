@@ -1,7 +1,6 @@
 import { forwardRef, useState } from "react";
 import { Heading7, Paragraphy } from "../../../Utils/Typography/Typography";
-import { useNavigate } from "react-router-dom";
-import Loading from "../../../Utils/Loading/Loading";
+
 import classes from "./SliderItem.module.scss";
 import ImageBox from "../ImageBox/ImageBox";
 

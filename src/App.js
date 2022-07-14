@@ -13,6 +13,7 @@ function App(props) {
           <Route path="/" match element={<Home />} />
           <Route path="/products/" match element={<p>products</p>} />
           <Route path="/product/*" match element={<p>product with id</p>} />
+          {/* <Route path="/user" element={<Footer></Footer>} /> */}
         </Routes>
         {/* {console.log(location)} */}
         <Footer />
