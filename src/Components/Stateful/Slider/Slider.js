@@ -3,7 +3,15 @@ import React from "react";
 import { BtnRound, LinkRound } from "../../Stateless/Button/Button";
 import classes from "./Slider.module.scss";
 import axios from "axios";
+<<<<<<< HEAD
 
+=======
+import SliderItem from "../../Stateless/SliderItem/SliderItem";
+import {
+  BsChevronLeft as ArrowLeft,
+  BsChevronRight as ArrowRight,
+} from "react-icons/bs";
+>>>>>>> 8d6415aa352bfdacfe8b8fbb80babe9097581a09
 import SliderButtons from "../../Stateless/Button/SliderButtons/SliderButtons";
 
 const Slider = (SliderElement, props) => {
@@ -180,8 +188,13 @@ const Slider = (SliderElement, props) => {
           </div>
 
           <SliderButtons
+<<<<<<< HEAD
             slideSliderLeft={this.slideSliderLeft.bind(this)}
             slideSliderRight={this.slideSliderRight.bind(this)}
+=======
+            slideSliderLeft={this.slideSliderLeft}
+            slideSliderRight={this.slideSliderRight}
+>>>>>>> 8d6415aa352bfdacfe8b8fbb80babe9097581a09
             currentSlideNum={this.state.currentSlideNum}
           />
 
