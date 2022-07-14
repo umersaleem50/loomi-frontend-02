@@ -1,7 +1,7 @@
 import {
   Heading3,
   Heading5,
-  Heading_Hero,
+  HEADING_HERO,
 } from "../../../../Utils/Typography/Typography";
 
 import { BtnCTA } from "../../Button/Button";
@@ -17,8 +17,8 @@ const Header = (props) => {
         muted
         loop
       />
-      <Heading_Hero text="Season" />
-      <Heading_Hero text="Sale" italic style={{ top: "50%" }} />
+      <HEADING_HERO text="Season" />
+      <HEADING_HERO text="Sale" italic style={{ top: "50%" }} />
       <Heading5 text="UP TO" bold />
       <Heading3 text="-60%" />
 

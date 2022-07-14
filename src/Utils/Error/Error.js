@@ -1,4 +1,3 @@
-import { Component } from "react";
 import { Heading6 } from "../Typography/Typography";
 import classes from "./Error.module.scss";
 

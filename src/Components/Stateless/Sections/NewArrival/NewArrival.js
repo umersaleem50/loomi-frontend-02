@@ -1,5 +1,5 @@
 import {
-  Heading_Hero,
+  HEADING_HERO,
   Heading3,
 } from "../../../../Utils/Typography/Typography";
 import { BtnRectangle } from "../../Button/Button";
@@ -8,7 +8,7 @@ const NewArrival = (props) => {
   return (
     <div className={classes.newArrival}>
       <div className={classes.newArrival__backdrop}>
-        <img src="/assets/backdrop2.jpg" alt="backdrop" srcset="" />
+        <img src="/assets/backdrop2.jpg" alt="backdrop" />
         <video src="/assets/newarrival2.mp4" autoPlay loop muted></video>
       </div>
 
@@ -30,7 +30,7 @@ const NewArrival = (props) => {
       </svg>
 
       <div className={classes.headings}>
-        <Heading_Hero
+        <HEADING_HERO
           text="new arrival"
           style={{
             fontSize: "10rem",
@@ -48,7 +48,7 @@ const NewArrival = (props) => {
           uppercase
         />
       </div>
-      <Heading_Hero
+      <HEADING_HERO
         className={classes.backdropHeading}
         text="new arrival"
         style={{

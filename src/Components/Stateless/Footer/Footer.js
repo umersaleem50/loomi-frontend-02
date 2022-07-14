@@ -18,7 +18,7 @@ const Footer = (props) => {
           <ul className={classes.Links}>
             {el.links.map((link, i) => {
               return (
-                <Link className={classes.Link} to={link.url}>
+                <Link className={classes.Link} to={link.url} key={i}>
                   <Paragraphy text={link.text} />
                 </Link>
               );
@@ -43,11 +43,16 @@ const Footer = (props) => {
             <a
               target={"_blank"}
               href="https://www.linkedin.com/in/umersaleem50/"
+              rel="noreferrer"
             >
               Umar Saleem
             </a>
             . Designed by{" "}
-            <a target={"_blank"} href="https://www.figma.com/@squart">
+            <a
+              target={"_blank"}
+              href="https://www.figma.com/@squart"
+              rel="noreferrer"
+            >
               Roman Cherepivskiy
             </a>
             .

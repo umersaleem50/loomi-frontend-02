@@ -15,18 +15,22 @@ class CollectionSlider extends Component {
   generateOptionSelectors(list) {
     return list.map((item, i) => {
       return (
-        <>
-          <label key={(i + 1) * 6} htmlFor={item.name}>
+        <div className={classes.OptionSelector} key={i}>
+          <label key={i + 1 + "label"} htmlFor={item.name}>
             {item.name}:
           </label>
-          <select key={i} name={item.name} onChange={(e) => console.log(e)}>
+          <select
+            key={i + 2 + "select"}
+            name={item.name}
+            onChange={(e) => console.log(e)}
+          >
             {item.options.map((option, i) => (
-              <option key={(i + 1) * 12} value={option.value}>
+              <option key={i + 1 + "option"} value={option.value}>
                 {option.name}
               </option>
             ))}
           </select>
-        </>
+        </div>
       );
     });
   }
@@ -46,7 +50,7 @@ class CollectionSlider extends Component {
   generateCollectionData(data) {
     return data.map((data, i) => {
       return (
-        <div className={classes.CollectionSlider__collection}>
+        <div className={classes.CollectionSlider__collection} key={i}>
           <div className={classes.CollectionSlider__collection__image}>
             <img src={`assets/${data.image}`} alt={`Product ${i}`} />
           </div>

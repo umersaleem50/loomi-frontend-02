@@ -27,9 +27,6 @@ class Navigation extends Component {
   ];
 
   render() {
-    {
-      console.log(this.state.currentNavLink);
-    }
     return (
       <nav className="nav">
         <Logo className="nav__logo" />

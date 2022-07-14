@@ -23,7 +23,7 @@ const ImageBox = (props) => {
       {/* //TODO: Fix Loading spinner */}
 
       {!isLoad && <Loading />}
-      <img src={imageSrc} alt="Product Image" onLoad={() => setIsLoad(true)} />
+      <img src={imageSrc} alt={"Product"} onLoad={() => setIsLoad(true)} />
     </div>
   );
 };

@@ -25,7 +25,7 @@ const Category = (props) => {
   ];
   const generateCategories = (categories) => {
     return categories.map((category, i) => (
-      <div className={classes.category}>
+      <div className={classes.category} key={i}>
         <ImageBox
           imageUrl={category.image}
           url={`api/v1/products?category=${category.url}`}

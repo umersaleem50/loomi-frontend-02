@@ -129,7 +129,6 @@ const Slider = (SliderElement, props) => {
       const containerWidth = this.sliderContainerRef.current.offsetWidth;
       const sliderWidth = this.sliderRef.current.offsetWidth;
       const productWidth = this.productRef.current.offsetWidth;
-      const productPadding = this.productRef.current.style.marginRight;
 
       if (containerWidth < sliderWidth) return;
 

@@ -39,7 +39,7 @@ export const Heading3 = (props) => {
   );
 };
 
-export const Heading_Hero = (props) => {
+export const HEADING_HERO = (props) => {
   return (
     <h2 className={classes.Heading_Hero} style={generateStyle(props)}>
       {props.children || props.text}
