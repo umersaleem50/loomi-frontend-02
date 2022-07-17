@@ -104,6 +104,9 @@ const Slider = (SliderElement, props) => {
             method: "GET",
             url: this.props.url || "api/v1/products",
           });
+
+          const testProduct = await fetch("api/v1/products");
+          console.log(testProduct);
           return products;
         } catch (err) {
           this.setState({

@@ -62,7 +62,11 @@ export const BtnRectangleStroke = (props) => {
 
 export const BtnRectangleAccent = (props) => {
   return (
-    <button className={classes.BtnRectangleAccent} onClick={props.clicked}>
+    <button
+      className={classes.BtnRectangleAccent}
+      style={props.customStyle}
+      onClick={props.clicked}
+    >
       {props.text || props.children}
     </button>
   );

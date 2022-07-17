@@ -1,9 +1,10 @@
 import classes from "./Typography.module.scss";
 
-const generateStyle = ({ upperCase, bold, italic, ...props }) => ({
+const generateStyle = ({ upperCase, bold, italic, color, ...props }) => ({
   textTransform: upperCase ? "uppercase" : "capitalize",
   fontWeight: bold ? "600" : "500",
   fontStyle: italic ? "italic" : "",
+  color,
   ...props.style,
 });
 

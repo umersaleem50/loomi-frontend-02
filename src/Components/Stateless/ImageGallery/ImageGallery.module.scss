@@ -1,0 +1,60 @@
+.ImageGallery {
+  display: flex;
+}
+.ImageList {
+  display: flex;
+  flex-direction: column;
+}
+.SmallImage {
+  width: auto;
+  height: 10rem;
+  cursor: pointer;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &:not(:last-of-type) {
+    margin-bottom: 1rem;
+  }
+}
+
+.CurrentImage {
+  width: auto;
+  height: 60rem;
+  margin-left: 3rem;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  position: relative;
+}
+
+.Arrow {
+  position: absolute;
+  width: 3rem;
+  height: 3rem;
+  top: 50%;
+  left: 96.5%;
+  padding: 0.5rem;
+  transform: translate(-100%, -50%);
+  background-color: var(--color-white);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s ease-in;
+
+  &:hover {
+    background-color: var(--color-accent);
+  }
+
+  &:first-of-type {
+    left: 10%;
+  }
+
+  &__right {
+  }
+}

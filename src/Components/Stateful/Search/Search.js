@@ -19,7 +19,7 @@ class Search extends Component {
     try {
       const results = await axios({
         method: "GET",
-        url: this.props.url || "api/v1/products/",
+        url: this.props.url || "/api/v1/products/",
         params: {
           product: this.state.products,
           select: "name images stocks",

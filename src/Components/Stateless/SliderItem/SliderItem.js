@@ -29,7 +29,7 @@ const SliderItem = forwardRef((props, ref) => {
         {props.discount && (
           <Paragraphy
             bold
-            text={`${props.discount} $`}
+            text={`${props.price - props.discount} $`}
             style={{ color: "var(--color-urgent)" }}
           />
         )}
