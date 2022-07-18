@@ -10,6 +10,11 @@ import OnscreenError from "../../Utils/Error/OnscreenError";
 import SetSizesOptions from "../../Components/Stateless/SetSizesOptions/SetSizesOptions";
 import { BtnRectangleAccent } from "../../Components/Stateless/Button/Button";
 import ProductDetailContainer from "./ProductDetailContainer/ProductDetailContainer";
+import Review from "../../Components/Stateless/Review/Review";
+import StoreMap from "../../Components/Stateless/StoreMap/StoreMap";
+import Slider from "../../Components/Stateful/Slider/Slider";
+import GridBox from "../../Components/Stateless/GridBox/GridBox";
+
 const Product = (props) => {
   let links = [
     {
@@ -21,10 +26,25 @@ const Product = (props) => {
       to: "/products?category=dress",
     },
   ];
-  let [product, setProduct] = useState([]);
-  let [isError, setIsError] = useState({ is: false, message: "" });
-
   const params = useParams();
+  let [product, setProduct] = useState([]);
+  let [recommendProducts, setRecommendProduct] = useState([]);
+  let [isError, setIsError] = useState({ is: false, message: "" });
+  let storeLocations = [];
+
+  const generateReviews = (reviews) => {
+    return reviews.map((review, i) => {
+      return (
+        <Review
+          key={i}
+          username={review.user.name}
+          ratings={review.rating}
+          profilePicture={review.user.profilePicture}
+          review={review.description}
+        />
+      );
+    });
+  };
 
   useEffect(() => {
     const request = async () => {
@@ -33,6 +53,13 @@ const Product = (props) => {
         const productData = await axios({
           url: `/api/v1/products/${productId}`,
         });
+
+        const recommendProducts = await axios({
+          url: `/api/v1/products?category=${productData.data.data.category[0]}`,
+        });
+
+        setRecommendProduct(recommendProducts.data.data.slice(0, 4));
+
         setProduct(productData.data.data);
       } catch (err) {
         setIsError({
@@ -44,16 +71,23 @@ const Product = (props) => {
     };
 
     request();
-  }, [params.id]);
+  }, []);
 
   return (
     <div className="ProductSection">
+      {/* //* If there is an error */}
       {isError.is && (
         <OnscreenError message={isError.message} toggle={isError.is} />
       )}
+      {/* //* otherwise run this */}
       <NavigateLinks links={links} productName={product.name} />
       <div className={classes.ProductContainer}>
+        {/* //* Product Images */}
+
         {product.images && <ImageGallery images={product.images} />}
+
+        {/* //* Product details */}
+
         <div className={classes.ProductDetails}>
           <div className={classes.ProductDetails__container}>
             {product.rating && (
@@ -96,10 +130,53 @@ const Product = (props) => {
                 ),
                 {
                   heading: "Product Details",
+                  show: true,
+                }
+              )}
+          </div>
+          <div className={classes.ProductDetails__container}>
+            {product.modelHeight &&
+              ProductDetailContainer(
+                () => (
+                  <>
+                    <Paragraphy color="var(--color-secondary)">
+                      <span>Model's height:</span> {product.modelHeight}cm /
+                      {(product.modelHeight / 30.48).toFixed(1)}"
+                    </Paragraphy>
+                    <Paragraphy color="var(--color-secondary)">
+                      <span>Model wears:</span> {product.modelWear}
+                    </Paragraphy>
+                  </>
+                ),
+                {
+                  heading: "Size & Fit",
+                  show: true,
+                }
+              )}
+          </div>
+
+          <div className={classes.ProductDetails__container}>
+            {product.reviews &&
+              ProductDetailContainer(
+                () => <>{generateReviews(product.reviews)}</>,
+                { heading: `Reviews (${product.ratingsQuntity || 0})` }
+              )}
+          </div>
+
+          <div className={classes.ProductDetails__container}>
+            {product.locations &&
+              product.locations.length !== 0 &&
+              ProductDetailContainer(
+                () => <StoreMap locations={product.locations} />,
+                {
+                  heading: `Availabiltiy in stores`,
+                  show: true,
                 }
               )}
           </div>
         </div>
+
+        {/* //* Render recommended slider */}
       </div>
     </div>
   );

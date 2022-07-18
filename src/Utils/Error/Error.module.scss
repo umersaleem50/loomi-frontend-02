@@ -43,20 +43,22 @@
   bottom: 5%;
 }
 
-.OnscreenError__show .Loading {
-  width: 100%;
-}
+// .Loading__show {
+//   width: 100%;
+// }
+
 .Loading {
   width: 0%;
   bottom: 100%;
   height: 0.5rem;
 
-  background-image: linear-gradient(var(--color-accent), var(--color-accent));
+  background-image: linear-gradient(var(--color-white), var(--color-white));
   background-position: 200%;
   z-index: 10;
   position: relative;
   border-radius: 1rem;
-  transition: all 5s ease-in;
+  transition: width 5s ease-in;
+  animation: animateLoading 5s ease-in;
 }
 
 .Close {
@@ -70,4 +72,13 @@
   border-radius: 50%;
 
   // transform: translateY(-50%);
+}
+
+@keyframes animateLoading {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
 }

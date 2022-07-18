@@ -12,9 +12,9 @@ const ImageBox = (props) => {
   return (
     <div
       className={
-        props.size === "small"
-          ? classes.ImageBox__img
-          : classes.ImageBox__img__big
+        (props.size === "small" && classes.ImageBox__img) ||
+        (props.size === "medium" && classes.ImageBox__img__medium) ||
+        classes.ImageBox__img__big
       }
       onClick={() =>
         navigate((props.url && props.url) || `/product/${props.productId}`)

@@ -6,8 +6,12 @@ import axios from "axios";
 
 import SliderButtons from "../../Stateless/Button/SliderButtons/SliderButtons";
 
-const Slider = (SliderElement, props) => {
+const Slider = (SliderElement, ...props) => {
   class SliderClass extends Component {
+    constructor(props) {
+      super();
+      this.props = props;
+    }
     state = {
       currentParam: undefined,
       fetchedProducts: [],
@@ -49,11 +53,15 @@ const Slider = (SliderElement, props) => {
         this.slideSlider(0);
         return;
       }
-      const products = this.state.fetchedProducts.filter((product) =>
-        product.category.includes(param)
-      );
+      const products = this.state.fetchedProducts
+        .filter((product) => product.category.includes(param))
+        .reverse();
       this.slideSlider(0);
-      this.setState({ products, currentParam: param, currentSlideNum: 0 });
+      this.setState({
+        products,
+        currentParam: param,
+        currentSlideNum: 0,
+      });
     }
 
     generateProducts(products) {
@@ -102,12 +110,10 @@ const Slider = (SliderElement, props) => {
         try {
           const products = await axios({
             method: "GET",
-            url: this.props.url || "api/v1/products",
+            url: this.props.url || "/api/v1/products",
           });
 
-          const testProduct = await fetch("api/v1/products");
-          console.log(testProduct);
-          return products;
+          return products.data.data;
         } catch (err) {
           this.setState({
             errorMsg: "Something went wrong. Please try again later!",
@@ -121,8 +127,8 @@ const Slider = (SliderElement, props) => {
     componentDidMount() {
       this.fetchDataFromServer().then((products) =>
         this.setState({
-          fetchedProducts: products.data.data || [],
-          products: [...products.data.data] || [],
+          fetchedProducts: products.reverse() || [],
+          products: [...products].reverse() || [],
         })
       );
     }
@@ -181,11 +187,13 @@ const Slider = (SliderElement, props) => {
             </div>
           </div>
 
-          <SliderButtons
-            slideSliderLeft={this.slideSliderLeft.bind(this)}
-            slideSliderRight={this.slideSliderRight.bind(this)}
-            currentSlideNum={this.state.currentSlideNum}
-          />
+          {!this.props.hideButtons && (
+            <SliderButtons
+              slideSliderLeft={this.slideSliderLeft.bind(this)}
+              slideSliderRight={this.slideSliderRight.bind(this)}
+              currentSlideNum={this.state.currentSlideNum}
+            />
+          )}
 
           {/* //TODO Delete below comment */}
 
